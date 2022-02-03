@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!-- Configuración de Hibernate -->
+<hibernate-configuration>
+    <!-- Para establecer la conexión a la BD y manejarla. Pueden existir varias, una por cada BD -->
+    <session-factory>
+        <!-- Variante SQL que usa la BD para ejecutar querys, dialecto -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
+        <!-- Para mostrar el resultado de cada operación realizada, valor true -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cursoHibernate?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">java2021</property>
+        <property name="hibernate.connection.password">2021</property>
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- Pool de conexiones -->
+        <!-- <property name="hibernate.connection.datasource">java:comp/env/jdbc/UAU</property> -->
+        <!-- Persistencia de la entidades como tablas en la BD. Mediante ficheros XML de configuración en el directorio scr/main/resources/ -->
+    
+        <!-- añadido el servicio de mapeo de servicio y puerto -->
+        <mapping resource="modelo/Profesor.hbm.xml"/>
+        <mapping resource="modelo/CorreoElectronico.hbm.xml"/>
+    
+    </session-factory>
+</hibernate-configuration>
